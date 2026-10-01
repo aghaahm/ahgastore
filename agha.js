@@ -25,9 +25,6 @@ function setLanguage(language) {
             ? element.dataset.ar
             : element.dataset.en;
     });
-
-    // حفظ اللغة المختارة
-    localStorage.setItem("aghaLanguage", language);
 }
 
 languageToggle.addEventListener("click", () => {
@@ -36,10 +33,8 @@ languageToggle.addEventListener("click", () => {
     setLanguage(currentLanguage === "en" ? "ar" : "en");
 });
 
-// اللغة الافتراضية = العربية
-const savedLanguage = localStorage.getItem("aghaLanguage") || "ar";
-
-setLanguage(savedLanguage);
+// العربية هي اللغة الافتراضية عند كل فتح للموقع
+setLanguage("ar");
 
 // السنة
 document.querySelector("#year").textContent = new Date().getFullYear();
